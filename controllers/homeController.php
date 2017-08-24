@@ -1,8 +1,9 @@
 <?php
 
-class homeController {
+class homeController extends controller {
 
     public function index() {
-        echo "Hello";
+        $var = 'nome';
+        $this->loadView('home');
     }
 }
