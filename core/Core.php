@@ -3,15 +3,56 @@
 * Class Core
 * Classe principal responsavel por rodar o sistema
 *
-* @autor: Mateus Martins
-* @autor_url: mateus.a.n.martins@gmail.com
+* @autor: Mateus Martins <mateus.a.n.martins@gmail.com>
 * @package: estrutura_mvc
 */
+
 class Core {
     
+    /*
+    * Função Run
+    * Resposável por reconhecer qual rota e parâmetros foram enviados e redirecionar para seu controller especifico.$_COOKIE
+    * 
+    * @autor: Mateus Martins <mateus.a.n.martins@gmail.com>
+    * @package: estrutura_mvc/Core
+    */
     public function run(){
+        
+        $url = '/';
+        if(isset($_GET['url'])){
+            $url .= $_GET['url'];
+        }
 
+        $params = array();
+
+        if(!empty($url) && $url != '/'){
+
+            $url = explode('/', $url);
+            array_shift($url);
+
+            $currentController = $url[0].'Controller';
+            array_shift($url);
+
+            if(isset($url[0]) && !empty($url[0])){
+                $currentAction = $url[0];
+                array_shift($url);
+            } else {
+                $currentAction = 'index';
+            }
+                   
+            if(count($url) > 0 && !empty($url[0])){
+                $params = $url;
+            }
+
+        } else {
+            $currentController = "homeController";
+            $currentAction     = "index";
+        }
+
+        $c = new $currentController();
+        call_user_func_array(array($c, $currentAction), $params);
     }
 
+    
 }
 

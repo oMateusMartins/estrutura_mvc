@@ -6,8 +6,7 @@ require 'config.php';
 * Função Autoload
 * Funçao responsável por carregar as classes dinamicamente no sistema.
 * 
-* @autor: Mateus Martins
-* @autor_url: mateus.a.n.martins@gmail.com
+* @autor: Mateus Martins <mateus.a.n.martins@gmail.com>
 * @package: estrutura_mvc
 */
 spl_autoload_register(function($class){

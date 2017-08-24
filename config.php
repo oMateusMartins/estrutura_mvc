@@ -5,8 +5,7 @@
 * Conecta com a base de dados de acordo com o ambiente. Seja ela local ou de produção.
 * Configuração de conexão feita de acordo com o definido no arquivo e constante "environment".
 *
-* @autor: Mateus Martins
-* @autor_url: mateus.a.n.martins@gmail.com
+* @autor: Mateus Martins <mateus.a.n.martins@gmail.com>
 * @package: estrutura_mvc
 */
 
